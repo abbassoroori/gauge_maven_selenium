@@ -6,27 +6,34 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.driver.Driver;
 
-import java.security.Key;
+import java.util.concurrent.TimeUnit;
 
 
 public class CustomerSignup {
 
     @Step("Sign up as <customer> with email <customer@example.com> and <password>")
     public void registerCustomerWith(String customer, String email, String password) {
+        String locator = System.getenv("homepage_login_link");
         WebDriver webDriver = Driver.webDriver;
-        webDriver.findElement(By.xpath("(//span[contains(.,'Login')])[1]")).click();
+        webDriver.findElement(By.xpath(locator)).click();
 
-        webDriver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
-        webDriver.findElement(By.xpath("//input[@id='reg_password']")).sendKeys(password + Keys.RETURN);
+        locator = System.getenv("homepage_modal_register_email");
+        webDriver.findElement(By.xpath(locator)).sendKeys(email);
+
+        locator = System.getenv("homepage_modal_register_password");
+        webDriver.findElement(By.xpath(locator)).sendKeys(password + Keys.RETURN);
+        webDriver.manage().timeouts().implicitlyWait(1500, TimeUnit.MILLISECONDS);
+        locator = System.getenv("homepage_submit_registration_button");
+        webDriver.findElement(By.xpath(locator)).click();
 
 
     }
 
     @Step("Check if the user is logged in")
     public void checkMyAccount(){
-
+        String locator = System.getenv("homepage_registered_myAccount");
         WebDriver webDriver = Driver.webDriver;
-        webDriver.findElement(By.xpath("(//span[contains(.,'My account')])[1]")).isDisplayed();
+        webDriver.findElement(By.xpath(locator)).isDisplayed();
 
     }
 
