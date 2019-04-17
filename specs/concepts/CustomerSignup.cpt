@@ -1,6 +1,9 @@
 Created by emartinez on 2019-04-16
 
 This is a concept file with following syntax for each concept.
-# Sign up as a new customer
-* Sign up as "Jann" with with fake email and "ThisIsnotAPassword!123.mx" password
-* Verify that page title is "My account – Demo Store – QA Rig"
+# Sign up as an existing customer
+* Accept Login data
+* Sign in as "testuser@example.com" with password "test123"
+
+# Verify that Notes module is available
+* Verify that note module exists
