@@ -2,5 +2,5 @@ Created by emartinez on 2019-04-16
 
 This is a concept file with following syntax for each concept.
 # Sign up as a new customer
-* Sign up as "Jann" with email "Jann@test.com.mx" and "ThisIsnotAPassword!123.mx"
-* Check if the user is logged in
+* Sign up as "Jann" with with fake email and "ThisIsnotAPassword!123.mx" password
+* Verify that page title is "My account – Demo Store – QA Rig"
