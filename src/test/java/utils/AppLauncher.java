@@ -8,7 +8,9 @@ public class AppLauncher {
     public static String APP_URL = System.getenv("APP_URL");
 
     @Step("Go to the store website")
-    public void launchTheApplication() {
+    public void goToUrl() {
         Driver.webDriver.get(APP_URL);
     }
+
+
 }

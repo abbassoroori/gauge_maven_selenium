@@ -1,4 +1,6 @@
+Created by emartinez on 2019-04-16
 
-# Sign up a new customer with name <name> email <email> and <password>
-* Sign up as <name> with email <email> and <password>
-* Show a message "Thank you for signing up! You are now logged in."
+This is a concept file with following syntax for each concept.
+# Sign up as a new customer
+* Sign up as "Jann" with email "Jann@test.com.mx" and "ThisIsnotAPassword!123.mx"
+* Check if the user is logged in
