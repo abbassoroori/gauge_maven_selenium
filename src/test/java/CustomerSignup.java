@@ -3,7 +3,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import utils.driver.Driver;
 
 import java.util.concurrent.TimeUnit;
@@ -30,12 +29,18 @@ public class CustomerSignup {
     }
 
     @Step("Check if the user is logged in")
-    public void checkMyAccount(){
+    public void checkMyAccount() {
         String locator = System.getenv("homepage_registered_myAccount");
         WebDriver webDriver = Driver.webDriver;
         webDriver.findElement(By.xpath(locator)).isDisplayed();
 
     }
 
+    @Step("Verify that page title is <page>")
+    public void checkPageTitle(String page) {
+        String actualTitle;
+        actualTitle = Driver.webDriver.getTitle();
+        Assert.assertEquals(page, actualTitle);
 
+    }
 }
