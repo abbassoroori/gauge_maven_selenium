@@ -1,7 +1,7 @@
 Created by emartinez on 2019-04-16
 
 This is a concept file with following syntax for each concept.
-# Sign up as an existing customer
+# Sign in as an existing customer
 * Accept Login data
 * Sign in as "testuser@example.com" with password "test123"
 
