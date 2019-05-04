@@ -9,7 +9,7 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 
 
-public class CustomerSignup {
+public class CustomerSignIn {
 
     Faker faker = new Faker(new Locale("en", "US"));
 
@@ -59,4 +59,19 @@ public class CustomerSignup {
         Gutils.isElementVisible(locator);
 
     }
+
+    @Step("Verify that error message is visible")
+    public void errorMessageExists(){
+        String locator = System.getenv("loginpage_error_message");
+        Gutils.isElementVisible(locator);
+    }
+
+    @Step("Verify that error message is <content>")
+    public void errorMessageExists(String content){
+        String locator = System.getenv("loginpage_error_message");
+        String actual = Gutils.elementTextis(locator);
+        Assert.assertEquals(content, actual);
+    }
+
+
 }

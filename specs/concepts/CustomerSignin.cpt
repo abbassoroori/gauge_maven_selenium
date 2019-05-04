@@ -7,3 +7,17 @@ This is a concept file with following syntax for each concept.
 
 # Verify that Notes module is available
 * Verify that note module exists
+
+#Attempt sign-in as an invalid customer (password)
+* Accept Login data
+* Sign in as "notavaliduser@example.com" with password "test123"
+
+#Attempt sign-in as an invalid customer (user)
+* Accept Login data
+* Sign in as "testuser@example.com" with password "notAValidassword"
+
+#Verify that error message is shown
+* Verify that error message is visible
+
+#Verify that error message matches design
+* Verify that error message is "The username or password are incorrect"

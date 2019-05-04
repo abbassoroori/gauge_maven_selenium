@@ -1,0 +1,14 @@
+Created by emartinez on 2019-05-03
+
+This is a concept file with following syntax for each concept.
+# Edit a note with random text
+* Select add a note
+* Add text to the note title
+* Add text to the note body
+* Save Note
+
+
+
+# Verify that note was changed
+* Verify that note Title matches entry
+* Verify that note Body matches entry
