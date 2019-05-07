@@ -20,6 +20,11 @@ public class Gutils
             return isVisible;
         }
 
+        public static String elementTextis(String xpath){
+
+            return Driver.webDriver.findElement(By.xpath(xpath)).getText();
+        }
+
        public static String getPageTitle(){
 
           return Driver.webDriver.getTitle();
