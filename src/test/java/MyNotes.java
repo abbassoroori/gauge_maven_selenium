@@ -13,29 +13,32 @@ public class MyNotes {
 
     Faker faker = new Faker(new Locale("en", "US"));
 
-    WebDriver webDriver = Driver.webDriver;
-    WebElement addANoteElement =  webDriver.findElement(By.xpath(System.getenv("homepage_AddNote_button")));
-    WebElement titleField = webDriver.findElement(By.xpath(System.getenv("myNotes_titlefield")));
-    WebElement notebodyfield = webDriver.findElement(By.xpath(System.getenv("myNotes_notebodyfield")));
-
 
     @Step("Select add a note")
     public void clickOnAddANote() {
+        WebDriver webDriver = Driver.webDriver;
+        WebElement addANoteElement =  webDriver.findElement(By.xpath(System.getenv("homepage_AddNote_button")));
         addANoteElement.click();
     }
 
     @Step("Add text to the note title")
     public void addTextTitle() {
+        WebDriver webDriver = Driver.webDriver;
+        WebElement titleField = webDriver.findElement(By.xpath(System.getenv("myNotes_titlefield")));
         titleField.sendKeys(faker.company().buzzword());
     }
 
     @Step("Add text to the note body")
     public void addTextBody() {
+        WebDriver webDriver = Driver.webDriver;
+        WebElement notebodyfield = webDriver.findElement(By.xpath(System.getenv("myNotes_notebodyfield")));
         notebodyfield.sendKeys(faker.company().catchPhrase());
     }
 
     @Step("Save Note")
     public void clickOnAddANote2() {
+        WebDriver webDriver = Driver.webDriver;
+        WebElement addANoteElement = webDriver.findElement(By.xpath(System.getenv("myNotes_addNoteButton")));
         addANoteElement.click();
     }
 
