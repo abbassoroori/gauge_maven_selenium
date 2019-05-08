@@ -6,12 +6,15 @@ import org.openqa.selenium.WebElement;
 import utils.driver.Driver;
 import utils.Gutils;
 import com.github.javafaker.Faker;
+import com.thoughtworks.gauge.datastore.DataStore;
+import com.thoughtworks.gauge.datastore.DataStoreFactory;
 import java.util.Locale;
 
 
 public class MyNotes {
 
     Faker faker = new Faker(new Locale("en", "US"));
+    DataStore scenarioStore = DataStoreFactory.getScenarioDataStore();
 
 
     @Step("Select add a note")
@@ -25,14 +28,19 @@ public class MyNotes {
     public void addTextTitle() {
         WebDriver webDriver = Driver.webDriver;
         WebElement titleField = webDriver.findElement(By.xpath(System.getenv("myNotes_titlefield")));
-        titleField.sendKeys(faker.company().buzzword());
+        String buzzwordTitle = faker.company().buzzword();
+        titleField.sendKeys(buzzwordTitle);
+        scenarioStore.put("expected_note_title", buzzwordTitle);
+
     }
 
     @Step("Add text to the note body")
     public void addTextBody() {
         WebDriver webDriver = Driver.webDriver;
         WebElement notebodyfield = webDriver.findElement(By.xpath(System.getenv("myNotes_notebodyfield")));
-        notebodyfield.sendKeys(faker.company().catchPhrase());
+        String catchPhraseBody = faker.company().catchPhrase();
+        notebodyfield.sendKeys(catchPhraseBody);
+        scenarioStore.put("expected_body_title", catchPhraseBody);
     }
 
     @Step("Save Note")
@@ -44,7 +52,9 @@ public class MyNotes {
 
     @Step("Verify that note Title matches entry")
     public void verifyTitleMatchesStored() {
-        Assert.assertTrue(true);
+        String expected_note_title = (String) scenarioStore.get("expected_note_title");
+        String actual_note_title = Gutils.elementTextis("myNotes_thirdNote");
+        Assert.assertEquals(expected_note_title, actual_note_title);
     }
     @Step("Verify that note Body matches entry")
     public void verifyBodyMatchesStored() {
