@@ -58,7 +58,7 @@ public class MyNotes {
     }
     @Step("Verify that note Body matches entry")
     public void verifyBodyMatchesStored() {
-        Assert.assertTrue(true);
+        Assert.assertTrue(false);
     }
 
 
