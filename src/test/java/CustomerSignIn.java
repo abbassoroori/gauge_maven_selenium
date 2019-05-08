@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class CustomerSignIn {
 
-    Faker faker = new Faker(new Locale("en", "US"));
+
 
 
     @Step("Sign in as <email> with password <password>")

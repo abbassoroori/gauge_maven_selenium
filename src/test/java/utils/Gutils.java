@@ -57,4 +57,10 @@ public class Gutils
             action.click(webElement).perform();
         }
 
+        public static void waitUntilTextIsPresentOnElement(String locator, String expectedText) {
+            WebDriverWait wait = new WebDriverWait(Driver.webDriver, 15);
+            String xpath = locator + "[contains(text(),'" + expectedText + "')]";
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        }
+
     }
