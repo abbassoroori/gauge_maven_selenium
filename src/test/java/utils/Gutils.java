@@ -14,15 +14,15 @@ import java.util.Set;
 
 public class Gutils
     {
-        public static boolean isElementVisible(String xpath){
+        public static boolean isElementVisible(String locator){
             Boolean isVisible;
-            isVisible = Driver.webDriver.findElement(By.xpath(xpath)).isDisplayed();
+            isVisible = Driver.webDriver.findElement(By.xpath(locator)).isDisplayed();
             return isVisible;
         }
 
-        public static String elementTextis(String xpath){
+        public static String elementTextis(String locator){
 
-            return Driver.webDriver.findElement(By.xpath(xpath)).getText();
+            return Driver.webDriver.findElement(By.xpath(locator)).getText();
         }
 
        public static String getPageTitle(){
